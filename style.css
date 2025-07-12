@@ -11,23 +11,39 @@ body {
   border: none;
   padding: 10px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .tabContent {
   margin-top: 20px;
 }
 
-label {
+label, input, select {
   display: block;
-  margin: 10px 0;
+  margin: 8px 0;
+  width: 100%;
 }
 
-input, select, button {
-  padding: 5px;
-  margin-left: 5px;
+input, select {
   background-color: #222;
   color: #fff;
   border: 1px solid #444;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #444;
 }
 
 table {
@@ -36,14 +52,15 @@ table {
   margin-top: 15px;
 }
 
-table, th, td {
-  border: 1px solid #555;
-}
-
 th, td {
+  border: 1px solid #555;
   padding: 8px;
   text-align: center;
 }
 
 .green { color: lightgreen; }
 .red { color: red; }
+
+.form-group {
+  margin-bottom: 12px;
+}

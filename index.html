@@ -5,41 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Health Tracker</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="tabs">
     <button onclick="showTab('inputTab')">Input</button>
     <button onclick="showTab('trackingTab')">Tracking</button>
+    <button onclick="showTab('chartTab')">Charts</button>
     <button onclick="showTab('settingsTab')">Settings</button>
   </div>
 
   <div id="inputTab" class="tabContent">
     <h2>Enter Measurement</h2>
     <form id="entryForm">
-      <label>User Name: <input type="text" id="userName" required /></label>
-      <label>Gender:
+      <div class="form-group">
+        <label>User Name:</label>
+        <select id="userNameSelect"></select>
+        <input type="text" id="userNameInput" placeholder="Or enter new name" />
+      </div>
+      <div class="form-group">
+        <label>Gender:</label>
         <select id="gender" required>
           <option value="">Select</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
-      </label>
-      <label>Date: <input type="date" id="date" required /></label>
-      <label>Time: <input type="time" id="time" required /></label>
-      <label>Uric Acid (µmol/L): <input type="number" id="uric" required /></label>
-      <label>Blood Glucose (mmol/L): <input type="number" step="0.1" id="glucose" required /></label>
-      <label>Meal Timing:
+      </div>
+      <div class="form-group">
+        <label>Date:</label>
+        <input type="date" id="date" required />
+      </div>
+      <div class="form-group">
+        <label>Time:</label>
+        <input type="time" id="time" required />
+      </div>
+      <div class="form-group">
+        <label>Uric Acid (µmol/L):</label>
+        <input type="number" id="uric" />
+      </div>
+      <div class="form-group">
+        <label>Blood Glucose (mmol/L):</label>
+        <input type="number" step="0.1" id="glucose" />
+      </div>
+      <div class="form-group">
+        <label>Meal Timing:</label>
         <select id="meal" required>
           <option value="Before">Before Meal</option>
           <option value="After">After Meal</option>
         </select>
-      </label>
-      <button type="submit">Save</button>
+      </div>
+      <button type="submit">Save Entry</button>
     </form>
   </div>
 
   <div id="trackingTab" class="tabContent" style="display:none;">
     <h2>Tracking</h2>
+    <button onclick="exportCSV()">Export to CSV</button>
     <label>Filter by User:
       <select id="filterUser" onchange="renderTable()"></select>
     </label>
@@ -50,6 +71,11 @@
       </select>
     </label>
     <table id="dataTable"></table>
+  </div>
+
+  <div id="chartTab" class="tabContent" style="display:none;">
+    <h2>Charts</h2>
+    <canvas id="healthChart" height="100"></canvas>
   </div>
 
   <div id="settingsTab" class="tabContent" style="display:none;">

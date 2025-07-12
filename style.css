@@ -1,0 +1,49 @@
+body {
+  background-color: #121212;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+
+.tabs button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.tabContent {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input, select, button {
+  padding: 5px;
+  margin-left: 5px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table, th, td {
+  border: 1px solid #555;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+.green { color: lightgreen; }
+.red { color: red; }
